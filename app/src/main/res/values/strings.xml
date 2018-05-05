@@ -15,4 +15,11 @@
 -->
 <resources>
     <string name="app_name">Quake Report</string>
+
+    <string name="mag_double">1.5</string>
+
+    <string name="place_string">Szczecin</string>
+
+    <string name="date_string">Sep, 29, 1985</string>
+
 </resources>
