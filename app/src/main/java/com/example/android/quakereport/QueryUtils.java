@@ -15,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Helper methods related to requesting and receiving earthquake data from USGS.
@@ -23,11 +24,6 @@ public final class QueryUtils {
 
     /** Tag for the log messages */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
-
-    /** URL to query the USGS dataset for earthquake information */
-    private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
-
 
 
     /**
@@ -38,6 +34,24 @@ public final class QueryUtils {
     private QueryUtils() {
     }
 
+    public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
+        // Create URL object
+        URL url = createUrl(requestUrl);
+
+        // Perform HTTP request to the URL and receive a JSON response back
+        String jsonResponse = null;
+        try {
+            jsonResponse = makeHttpRequest(url);
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+        }
+
+        // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
+        List<Earthquake> earthquakes = extractEarthquakesFromJson(jsonResponse);
+
+        // Return the list of {@link Earthquake}s
+        return earthquakes;
+    }
 
     /**
      * Returns new URL object from the given string URL.
@@ -114,7 +128,7 @@ public final class QueryUtils {
      * Return a list of {@link Earthquake} objects that has been built up from
      * parsing a JSON response.
      */
-    public static ArrayList<Earthquake> extractEarthquakes(String jsonResponse) {
+    public static List<Earthquake> extractEarthquakesFromJson(String jsonResponse) {
 
         // Create an empty ArrayList that we can start adding earthquakes to
         ArrayList<Earthquake> earthquakes = new ArrayList<>();
