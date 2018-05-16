@@ -4,35 +4,34 @@ public class Earthquake {
 
     private double mMag;
     private String mPlace;
-    private String mDate;
+    private Long mDate;
+    private String mUrl;
 
-    public Earthquake(double mMag, String mPlace, String mDate) {
+
+
+    public Earthquake(double mMag, String mPlace, Long mDate, String mUrl) {
         this.mMag = mMag;
         this.mPlace = mPlace;
         this.mDate = mDate;
+        this.mUrl = mUrl;
+
     }
 
     public double getmMag() {
         return mMag;
     }
 
-    public void setmMag(double mMag) {
-        this.mMag = mMag;
-    }
 
     public String getmPlace() {
         return mPlace;
     }
 
-    public void setmPlace(String mPlace) {
-        this.mPlace = mPlace;
-    }
-
-    public String getmDate() {
+    public Long getmDate() {
         return mDate;
     }
 
-    public void setmDate(String mDate) {
-        this.mDate = mDate;
+    public String getmUrl() {
+        return mUrl;
     }
+
 }

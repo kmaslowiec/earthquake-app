@@ -18,8 +18,14 @@
 
     <string name="mag_double">1.5</string>
 
-    <string name="place_string">Szczecin</string>
+    <string name="location_offset">Near Of</string>
+
+    <string name="primary_location">Szczecin</string>
 
     <string name="date_string">Sep, 29, 1985</string>
+
+    <string name="time_string">15:00:00</string>
+
+    <string name="near_the">Near the</string>
 
 </resources>
