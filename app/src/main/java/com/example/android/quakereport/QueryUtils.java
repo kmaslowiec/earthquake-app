@@ -35,6 +35,8 @@ public final class QueryUtils {
     }
 
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
+
+
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -109,7 +111,7 @@ public final class QueryUtils {
             }
 
         } catch (IOException e) {
-            // TODO: Handle the exception
+
             Log.e(LOG_TAG, "Problem with internet connection", e);
 
         } finally {
@@ -138,9 +140,11 @@ public final class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
+
 
             JSONObject root = new JSONObject(jsonResponse);
+
+
 
             JSONArray array = root.getJSONArray("features");
 
