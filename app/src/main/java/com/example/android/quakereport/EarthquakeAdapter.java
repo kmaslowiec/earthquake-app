@@ -145,7 +145,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // gets date object
         Date dateObject = new Date(timeUnix);
         //sets the format of the date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("DD MM, yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MM, yyyy");
         //add date to the String
         String stringDate = dateFormat.format(dateObject);
 
