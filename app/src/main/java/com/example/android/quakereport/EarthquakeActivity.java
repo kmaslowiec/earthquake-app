@@ -46,7 +46,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
     /*private static final String USGS_REQUEST_URL =
             "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";*/ // hardcoded
 
-    private static final String USGS_REQUEST_URL = "http://earthquake.usgs.gov/fdsnws/event/1/query"; // URI value
+    private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query"; // URI value
 
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
@@ -144,7 +144,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("limit", "10");
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
-        uriBuilder.appendQueryParameter("orderby", "orderBy");
+        uriBuilder.appendQueryParameter("orderby", "time");
 
         Log.v("URI address" , uriBuilder.toString());
         // Return the completed uri `http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=10&minmag=minMagnitude&orderby=time
